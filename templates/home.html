@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Predict from XLSX or CSV</title>
+    <title>Sparkify Churn Prediction App</title>
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="login">
-        <h1>Predict from XLSX or CSV</h1>
+        <h1>Predict Churn from XLSX or CSV</h1>
         <form action="{{ url_for('home') }}" method="POST" enctype="multipart/form-data">
             <input type="file" name="file" accept=".xlsx,.csv" required="required" /><br>
             <button type="submit" class="btn btn-primary btn-block btn-large">Upload and Predict</button>
@@ -22,7 +22,7 @@
         {% endif %}
         {% if success %}
         <p style="color: green;">{{ success }}</p>
-        <a href="{{ url_for('download_file', filename='results.xlsx') }}" class="btn btn-primary btn-block btn-large">Download Results</a>
+        <a href="{{ url_for('download_file', filename='results.csv') }}" class="btn btn-primary btn-block btn-large">Download Results</a>
         {% endif %}
     </div>
 </body>
