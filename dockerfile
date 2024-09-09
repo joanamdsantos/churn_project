@@ -19,8 +19,12 @@ COPY requirements.txt .
 # Upgrade pip and install Python dependencies
 RUN pip3 install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Expose port 5000 for the Flask application
-EXPOSE 5000
+RUN echo '#!/bin/bash\n\
+gunicorn app:app -b 0.0.0.0:8080 -w 4 --log-level debug --error-logfile - --access-logfile - --capture-output' > /churn_project/start.sh && \
+chmod +x /churn_project/start.sh
 
-# Define the command to run the Flask application using Gunicorn
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000", "-w", "4"]
+# Expose port 8080 for the Flask application
+EXPOSE 8080
+
+# Run the start script
+CMD ["/churn_project/start.sh"]
