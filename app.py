@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 app = Flask(__name__)
-model = load_model('Final DTModel 07Sept2024')
+model = load_model('FinalDTModel_07Sept2024')
 logging.info("Transformation Pipeline and Model Successfully Loaded")
 
 UPLOAD_FOLDER = 'uploads'
