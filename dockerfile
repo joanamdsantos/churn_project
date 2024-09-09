@@ -10,8 +10,9 @@ RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Copy the necessary files and directories into the container
-COPY static/ templates/ FinalDTModel_07Sept2024.pkl app.py requirements.txt /churn_project/
+COPY static/ templates/ uploads/ FinalDTModel_07Sept2024.pkl app.py requirements.txt /churn_project/
 COPY templates/ /churn_project/templates/
+COPY uploads/ /churn_project/uploads/
 COPY static/ /churn_project/static/
 COPY FinalDTModel_07Sept2024.pkl app.py requirements.txt /churn_project/
 
