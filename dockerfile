@@ -21,11 +21,11 @@ COPY requirements.txt .
 RUN pip3 install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 RUN echo '#!/bin/bash\n\
-gunicorn app:app -b 0.0.0.0:8080 -w 4 --log-level debug --error-logfile - --access-logfile - --capture-output' > /churn_project/start.sh && \
+gunicorn app:app -b 0.0.0.0:8060 -w 4 --log-level debug --error-logfile - --access-logfile - --capture-output' > /churn_project/start.sh && \
 chmod +x /churn_project/start.sh
 
 # Expose port 8080 for the Flask application
-EXPOSE 8080
+EXPOSE 8060
 
 # Run the start script
 CMD ["/churn_project/start.sh"]
